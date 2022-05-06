@@ -68,7 +68,19 @@ export default {
       postToStage: {},
       contentChanges: 0,
       previewSaving: false,
-      editorConfig: { placeholder: '请输入内容...' },
+      editorConfig: {
+        placeholder: '请输入内容...',
+        MENU_CONF: {
+          uploadImage: {
+            server: '/api/admin/attachments/upload',
+            customUpload: this.handleCustomUploadImage
+          },
+          uploadVideo: {
+            server: '/api/admin/attachments/upload',
+            customUpload: this.handleCustomUploadVideo
+          }
+        }
+      },
       mode: 'default'
     }
   },
@@ -226,6 +238,28 @@ export default {
     },
     onUpdateFromSetting(post) {
       this.postToStage = post
+    },
+    handleCustomUploadImage(file, insertFn) {
+      apiClient.attachment
+        .upload(file)
+        .then(response => {
+          const attachment = response.data
+          insertFn(`https://cern-api.fists.cn${attachment.path}`)
+        })
+        .catch(e => {
+          this.$log.error('upload image error: ', e)
+        })
+    },
+    handleCustomUploadVideo(file, insertFn) {
+      apiClient.attachment
+        .upload(file)
+        .then(response => {
+          const attachment = response.data
+          insertFn(`https://cern-api.fists.cn${attachment.path}`)
+        })
+        .catch(e => {
+          this.$log.error('upload image error: ', e)
+        })
     }
   }
 }
