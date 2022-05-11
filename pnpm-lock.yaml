@@ -16,6 +16,7 @@ specifiers:
   '@vue/cli-service': ~5.0.4
   '@wangeditor/editor': ^5.0.1
   '@wangeditor/editor-for-vue': ^1.0.1
+  '@wangeditor/plugin-upload-attachment': ^1.0.0
   ant-design-vue: ^1.7.8
   compression-webpack-plugin: ^9.2.0
   dayjs: ^1.11.0
@@ -61,6 +62,7 @@ dependencies:
   '@halo-dev/editor': 3.0.3
   '@wangeditor/editor': 5.0.1
   '@wangeditor/editor-for-vue': 1.0.1_7235fee7308e05ae0da0636f41ff5fd1
+  '@wangeditor/plugin-upload-attachment': 1.0.0_@wangeditor+editor@5.0.1
   ant-design-vue: 1.7.8_9065e7474e033a8e4b95615fc8e6c36c
   dayjs: 1.11.0
   enquire.js: 2.1.6
@@ -2498,6 +2500,17 @@ packages:
       snabbdom: 3.5.0
     dev: false
 
+  /@wangeditor/plugin-upload-attachment/1.0.0_@wangeditor+editor@5.0.1:
+    resolution: {integrity: sha512-1gjetjmSOEc9yhx0cUz3HFauSZHELuky4cJsYSOsdrGHm2zkj3TVADH/4KisdPSJvChv81RykP/I3VQ+mEkSJQ==}
+    peerDependencies:
+      '@uppy/core': ^2.1.5
+      '@wangeditor/editor': '>=5.0.0'
+      snabbdom: ^3.3.1
+    dependencies:
+      '@wangeditor/editor': 5.0.1
+      dom7: 4.0.4
+    dev: false
+
   /@wangeditor/table-module/1.0.1_d29fdf5fe5a70dbd409c9a45a6875cd9:
     resolution: {integrity: sha512-55U77WoypdUsMY35OJ/FN8VfKM7tBd6JCSCr9EE8Z78nfzFxhJcLPasWkFXqPklleDZ+pcIkfiPojn2DdNRy5w==}
     peerDependencies:
@@ -4467,6 +4480,12 @@ packages:
     resolution: {integrity: sha512-oNlcUdHsC4zb7Msx7JN3K0Nro1dzJ48knvBOnDPKJ2GV9wl1i5vydJZUSyOfrkKFDZEud/jBsTk92S/VGSAe/g==}
     dependencies:
       ssr-window: 3.0.0
+    dev: false
+
+  /dom7/4.0.4:
+    resolution: {integrity: sha512-DSSgBzQ4rJWQp1u6o+3FVwMNnT5bzQbMb+o31TjYYeRi05uAcpF8koxdfzeoe5ElzPmua7W7N28YJhF7iEKqIw==}
+    dependencies:
+      ssr-window: 4.0.2
     dev: false
 
   /domelementtype/2.2.0:
@@ -7942,6 +7961,10 @@ packages:
 
   /ssr-window/3.0.0:
     resolution: {integrity: sha512-q+8UfWDg9Itrg0yWK7oe5p/XRCJpJF9OBtXfOPgSJl+u3Xd5KI328RUEvUqSMVM9CiQUEf1QdBzJMkYGErj9QA==}
+    dev: false
+
+  /ssr-window/4.0.2:
+    resolution: {integrity: sha512-ISv/Ch+ig7SOtw7G2+qkwfVASzazUnvlDTwypdLoPoySv+6MqlOV10VwPSE6EWkGjhW50lUmghPmpYZXMu/+AQ==}
     dev: false
 
   /ssri/8.0.1:

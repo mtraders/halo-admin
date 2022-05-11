@@ -16,11 +16,15 @@
           <a-input v-model="sheetToStage.title" placeholder="请输入页面标题" size="large" />
         </div>
 
-        <div id="editor" :style="{ height: editorHeight }">
-          <MarkdownEditor
-            :originalContent.sync="sheetToStage.originalContent"
-            @change="onContentChange"
-            @save="handleSaveDraft()"
+        <div id="editor">
+          <Toolbar style="border-bottom: 1px solid #ccc" :editor="editor" :mode="mode" :defaultConfig="toolbarConfig" />
+          <Editor
+            style="height: 700px; overflow-y: hidden"
+            v-model="sheetToStage.originalContent"
+            :defaultConfig="editorConfig"
+            :mode="mode"
+            @onCreated="onCreated"
+            @onChange="onContentChange"
           />
         </div>
       </a-col>
@@ -39,7 +43,8 @@
 // components
 import { PageView } from '@/layouts'
 import SheetSettingModal from './components/SheetSettingModal'
-import MarkdownEditor from '@/components/Editor/MarkdownEditor'
+import '@wangeditor/editor/dist/css/style.css'
+import { Editor, Toolbar } from '@wangeditor/editor-for-vue'
 
 // libs
 import { mixin, mixinDevice, mixinPostEdit } from '@/mixins/mixin.js'
@@ -51,15 +56,44 @@ export default {
   components: {
     PageView,
     SheetSettingModal,
-    MarkdownEditor
+    Editor,
+    Toolbar
   },
   mixins: [mixin, mixinDevice, mixinPostEdit],
   data() {
     return {
+      editor: null,
       sheetSettingVisible: false,
-      sheetToStage: {},
+      sheetToStage: {
+        editorType: 'RICHTEXT',
+        keepRaw: true
+      },
       contentChanges: 0,
-      previewSaving: false
+      previewSaving: false,
+      toolbarConfig: {
+        insertKeys: {
+          index: 22, // 自定义插入的位置
+          keys: ['uploadAttachment'] // “上传附件”菜单
+        }
+      },
+      editorConfig: {
+        placeholder: '请输入内容...',
+        MENU_CONF: {
+          uploadImage: {
+            server: '/api/admin/attachments/upload',
+            customUpload: this.handleCustomUploadImage
+          },
+          uploadVideo: {
+            server: '/api/admin/attachments/upload',
+            customUpload: this.handleCustomUploadVideo
+          },
+          uploadAttachment: {
+            server: '/api/admin/attachments/upload',
+            customUpload: this.handleCustomUploadAttachment
+          }
+        }
+      },
+      mode: 'default'
     }
   },
   beforeRouteEnter(to, from, next) {
@@ -110,6 +144,9 @@ export default {
     document.removeEventListener('keydown', this.onRegisterSaveShortcut)
   },
   methods: {
+    onCreated(editor) {
+      this.editor = Object.seal(editor)
+    },
     onRegisterSaveShortcut(e) {
       if ((e.ctrlKey || e.metaKey) && !e.altKey && !e.shiftKey && e.keyCode === 83) {
         e.preventDefault()
@@ -208,6 +245,39 @@ export default {
     },
     onUpdateFromSetting(sheet) {
       this.sheetToStage = sheet
+    },
+    handleCustomUploadImage(file, insertFn) {
+      apiClient.attachment
+        .upload(file)
+        .then(response => {
+          const attachment = response.data
+          insertFn(`https://cern-api.fists.cn${attachment.path}`)
+        })
+        .catch(e => {
+          this.$log.error('upload image error: ', e)
+        })
+    },
+    handleCustomUploadVideo(file, insertFn) {
+      apiClient.attachment
+        .upload(file)
+        .then(response => {
+          const attachment = response.data
+          insertFn(`https://cern-api.fists.cn${attachment.path}`)
+        })
+        .catch(e => {
+          this.$log.error('upload image error: ', e)
+        })
+    },
+    handleCustomUploadAttachment(file, insertFn) {
+      apiClient.attachment
+        .upload(file)
+        .then(response => {
+          const attachment = response.data
+          insertFn(`https://cern-api.fists.cn${attachment.path}`, `${attachment.name}`)
+        })
+        .catch(e => {
+          this.$log.error('upload attachment error: ', e)
+        })
     }
   }
 }

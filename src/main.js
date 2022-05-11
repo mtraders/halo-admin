@@ -12,6 +12,10 @@ import '@/filters/filter' // global filter
 import './components'
 import pkg from '../package.json'
 
+import { Boot } from '@wangeditor/editor'
+import attachmentModule from '@wangeditor/plugin-upload-attachment'
+Boot.registerModule(attachmentModule)
+
 Vue.config.productionTip = false
 Vue.prototype.VERSION = pkg.version
 

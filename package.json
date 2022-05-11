@@ -27,6 +27,7 @@
     "@halo-dev/editor": "^3.0.3",
     "@wangeditor/editor": "^5.0.1",
     "@wangeditor/editor-for-vue": "^1.0.1",
+    "@wangeditor/plugin-upload-attachment": "^1.0.0",
     "ant-design-vue": "^1.7.8",
     "dayjs": "^1.11.0",
     "enquire.js": "^2.1.6",

@@ -15,11 +15,16 @@
         <div class="mb-4">
           <a-input v-model="postToStage.title" placeholder="请输入文章标题" size="large" />
         </div>
-        <div id="editor" :style="{ height: editorHeight }">
+        <div id="editor">
           <div style="border: 1px solid #ccc">
-            <Toolbar style="border-bottom: 1px solid #ccc" :editor="editor" :mode="mode" />
+            <Toolbar
+              style="border-bottom: 1px solid #ccc"
+              :editor="editor"
+              :mode="mode"
+              :defaultConfig="toolbarConfig"
+            />
             <Editor
-              style="height: 500px; overflow-y: hidden"
+              style="height: 700px; overflow-y: hidden"
               v-model="postToStage.originalContent"
               :defaultConfig="editorConfig"
               :mode="mode"
@@ -65,9 +70,18 @@ export default {
     return {
       editor: null,
       postSettingVisible: false,
-      postToStage: {},
+      postToStage: {
+        editorType: 'RICHTEXT',
+        keepRaw: true
+      },
       contentChanges: 0,
       previewSaving: false,
+      toolbarConfig: {
+        insertKeys: {
+          index: 22, // 自定义插入的位置
+          keys: ['uploadAttachment'] // “上传附件”菜单
+        }
+      },
       editorConfig: {
         placeholder: '请输入内容...',
         MENU_CONF: {
@@ -78,6 +92,10 @@ export default {
           uploadVideo: {
             server: '/api/admin/attachments/upload',
             customUpload: this.handleCustomUploadVideo
+          },
+          uploadAttachment: {
+            server: '/api/admin/attachments/upload',
+            customUpload: this.handleCustomUploadAttachment
           }
         }
       },
@@ -258,7 +276,18 @@ export default {
           insertFn(`https://cern-api.fists.cn${attachment.path}`)
         })
         .catch(e => {
-          this.$log.error('upload image error: ', e)
+          this.$log.error('upload video error: ', e)
+        })
+    },
+    handleCustomUploadAttachment(file, insertFn) {
+      apiClient.attachment
+        .upload(file)
+        .then(response => {
+          const attachment = response.data
+          insertFn(`https://cern-api.fists.cn${attachment.path}`, `${attachment.name}`)
+        })
+        .catch(e => {
+          this.$log.error('upload attachment error: ', e)
         })
     }
   }
