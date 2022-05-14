@@ -22,7 +22,8 @@ pnpm-debug.log*
 *.sln
 *.sw?
 
-# NodeJs package manager 
+# NodeJs package manager
 
 yarn.lock
 package-lock.json
+pnpm-lock.json
