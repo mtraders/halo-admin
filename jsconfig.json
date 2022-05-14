@@ -1,3 +1,9 @@
 {
-  "include": ["./src/**/*"]
+  "include": ["./src/**/*"],
+  "vueCompilerOptions": {
+    "experimentalDisableTemplateSupport": true
+  },
+  "compilerOptions": {
+    "jsx": "preserve"
+  }
 }
