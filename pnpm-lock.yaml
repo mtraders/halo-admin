@@ -59,7 +59,7 @@ dependencies:
   '@codemirror/lang-html': 0.19.4
   '@codemirror/lang-java': 0.19.1
   '@halo-dev/admin-api': 1.0.0
-  '@halo-dev/editor': 3.0.3
+  '@halo-dev/editor': 3.0.4
   '@wangeditor/editor': 5.0.1
   '@wangeditor/editor-for-vue': 1.0.1_7235fee7308e05ae0da0636f41ff5fd1
   '@wangeditor/plugin-upload-attachment': 1.0.0_@wangeditor+editor@5.0.1
@@ -1642,9 +1642,9 @@ packages:
       lodash.escape: 4.0.1
       markdown-it: 12.3.2
       markdown-it-abbr: 1.0.4
-      markdown-it-anchor: 8.4.1_markdown-it@12.3.2
-      markdown-it-attrs: 4.1.3_markdown-it@12.3.2
-      markdown-it-emoji: 2.0.0
+      markdown-it-anchor: 8.6.4_markdown-it@12.3.2
+      markdown-it-attrs: 4.1.4_markdown-it@12.3.2
+      markdown-it-emoji: 2.0.2
       markdown-it-footnote: 3.0.3
       markdown-it-images-preview: 1.0.1
       markdown-it-ins: 3.0.1
@@ -3782,8 +3782,8 @@ packages:
     resolution: {integrity: sha512-KHW6M86R+FUPYGb3R5XiYjXPq7VzwxZ22buHhAEVG5ztoEcZZMLov530mmccaqA1GghZArjQV46fuc8kUqhhHw==}
     dev: false
 
-  /d3-array/3.1.1:
-    resolution: {integrity: sha512-33qQ+ZoZlli19IFiQx4QEpf2CBEayMRzhlisJHSCsSUbDXv6ZishqS1x7uFVClKG4Wr7rZVHvaAttoLow6GqdQ==}
+  /d3-array/3.1.6:
+    resolution: {integrity: sha512-DCbBBNuKOeiR9h04ySRBMW52TFVc91O9wJziuyXw6Ztmy8D3oZbmCkOO3UHKC7ceNJsN2Mavo9+vwV8EAEUXzA==}
     engines: {node: '>=12'}
     dependencies:
       internmap: 2.0.3
@@ -3856,7 +3856,7 @@ packages:
     resolution: {integrity: sha512-0Oc4D0KyhwhM7ZL0RMnfGycLN7hxHB8CMmwZ3+H26PWAG0ozNuYG5hXSDNgmP1SgJkQMrlG6cP20HoaSbvcJTQ==}
     engines: {node: '>=12'}
     dependencies:
-      d3-array: 3.1.1
+      d3-array: 3.1.6
     dev: false
 
   /d3-delaunay/6.0.2:
@@ -3968,15 +3968,15 @@ packages:
     resolution: {integrity: sha512-Wt23xBych5tSy9IYAM1FR2rWIBFWa52B/oF/GYe5zbdHrg08FU8+BuI6X4PvTwPDdqdAdq04fuWJpELtsaEjeA==}
     engines: {node: '>=12'}
     dependencies:
-      d3-array: 3.1.1
+      d3-array: 3.1.6
     dev: false
 
   /d3-hierarchy/1.1.9:
     resolution: {integrity: sha512-j8tPxlqh1srJHAtxfvOUwKNYJkQuBFdM1+JAUfq6xqH5eAqf93L7oG1NVqDa4CpFZNvnNKtCYEUC8KY9yEn9lQ==}
     dev: false
 
-  /d3-hierarchy/3.1.1:
-    resolution: {integrity: sha512-LtAIu54UctRmhGKllleflmHalttH3zkfSi4NlKrTAoFKjC+AFBJohsCAdgCBYQwH0F8hIOGY89X1pPqAchlMkA==}
+  /d3-hierarchy/3.1.2:
+    resolution: {integrity: sha512-FX/9frcub54beBdugHjDCdikxThEqjnR93Qt7PvQTOHxyiNCAlvMrHhclk3cD5VeAaq9fxmfRp+CnWw9rEMBuA==}
     engines: {node: '>=12'}
     dev: false
 
@@ -4059,7 +4059,7 @@ packages:
     resolution: {integrity: sha512-GZW464g1SH7ag3Y7hXjf8RoUuAFIqklOAq3MRl4OaWabTFJY9PN/E1YklhXLh+OQ3fM9yS2nOkCoS+WLZ6kvxQ==}
     engines: {node: '>=12'}
     dependencies:
-      d3-array: 3.1.1
+      d3-array: 3.1.6
       d3-format: 3.1.0
       d3-interpolate: 3.0.1
       d3-time: 3.0.0
@@ -4109,7 +4109,7 @@ packages:
     resolution: {integrity: sha512-zmV3lRnlaLI08y9IMRXSDshQb5Nj77smnfpnd2LrBa/2K281Jijactokeak14QacHs/kKq0AQ121nidNYlarbQ==}
     engines: {node: '>=12'}
     dependencies:
-      d3-array: 3.1.1
+      d3-array: 3.1.6
     dev: false
 
   /d3-timer/1.0.10:
@@ -4207,11 +4207,11 @@ packages:
       d3-zoom: 1.8.3
     dev: false
 
-  /d3/7.4.0:
-    resolution: {integrity: sha512-/xKyIYpKzd+I2DhiS2ANYJtEfHkE9lHKBFwqsplKsazPcXy2N1KIJSMTJsRk42jHbHCH0KPJGd0RnBt6NBJ1MA==}
+  /d3/7.4.4:
+    resolution: {integrity: sha512-97FE+MYdAlV3R9P74+R3Uar7wUKkIFu89UWMjEaDhiJ9VxKvqaMxauImy8PC2DdBkdM2BxJOIoLxPrcZUyrKoQ==}
     engines: {node: '>=12'}
     dependencies:
-      d3-array: 3.1.1
+      d3-array: 3.1.6
       d3-axis: 3.0.0
       d3-brush: 3.0.0
       d3-chord: 3.0.1
@@ -4226,7 +4226,7 @@ packages:
       d3-force: 3.0.0
       d3-format: 3.1.0
       d3-geo: 3.0.1
-      d3-hierarchy: 3.1.1
+      d3-hierarchy: 3.1.2
       d3-interpolate: 3.0.1
       d3-path: 3.0.1
       d3-polygon: 3.0.1
@@ -6183,8 +6183,8 @@ packages:
     resolution: {integrity: sha512-ZeA4Z4SaBbYysZap5iZcxKmlPL6bYA8grqhzJIHB1ikn7njnzaP8uwbtuXc4YXD5LicI4/2Xmc0VwmSiFV04gg==}
     dev: false
 
-  /markdown-it-anchor/8.4.1_markdown-it@12.3.2:
-    resolution: {integrity: sha512-sLODeRetZ/61KkKLJElaU3NuU2z7MhXf12Ml1WJMSdwpngeofneCRF+JBbat8HiSqhniOMuTemXMrsI7hA6XyA==}
+  /markdown-it-anchor/8.6.4_markdown-it@12.3.2:
+    resolution: {integrity: sha512-Ul4YVYZNxMJYALpKtu+ZRdrryYt/GlQ5CK+4l1bp/gWXOG2QWElt6AqF3Mih/wfUKdZbNAZVXGR73/n6U/8img==}
     peerDependencies:
       '@types/markdown-it': '*'
       markdown-it: '*'
@@ -6192,17 +6192,17 @@ packages:
       markdown-it: 12.3.2
     dev: false
 
-  /markdown-it-attrs/4.1.3_markdown-it@12.3.2:
-    resolution: {integrity: sha512-d5yg/lzQV2KFI/4LPsZQB3uxQrf0/l2/RnMPCPm4lYLOZUSmFlpPccyojnzaHkfQpAD8wBHfnfUW0aMhpKOS2g==}
+  /markdown-it-attrs/4.1.4_markdown-it@12.3.2:
+    resolution: {integrity: sha512-53Zfv8PTb6rlVFDlD106xcZHKBSsRZKJ2IW/rTxEJBEVbVaoxaNsmRkG0HXfbHl2SK8kaxZ2QKqdthWy/QBwmA==}
     engines: {node: '>=6'}
     peerDependencies:
-      markdown-it: '>= 9.0.0 < 13.0.0'
+      markdown-it: '>= 9.0.0'
     dependencies:
       markdown-it: 12.3.2
     dev: false
 
-  /markdown-it-emoji/2.0.0:
-    resolution: {integrity: sha512-39j7/9vP/CPCKbEI44oV8yoPJTpvfeReTn/COgRhSpNrjWF3PfP/JUxxB0hxV6ynOY8KH8Y8aX9NMDdo6z+6YQ==}
+  /markdown-it-emoji/2.0.2:
+    resolution: {integrity: sha512-zLftSaNrKuYl0kR5zm4gxXjHaOI3FAOEaloKmRA5hijmJZvSjmxcokOLlzycb/HXlUFWzXqpIEoyEMCE4i9MvQ==}
     dev: false
 
   /markdown-it-footnote/3.0.3:
@@ -6311,14 +6311,14 @@ packages:
     resolution: {integrity: sha512-ITSHjwVaby1Li738sxhF48sLTxcNyUAoWfoqyztL1f7J6JOLpHOuQPNLBb6lxGPUA0u7xP9IRULgvod0dKu35A==}
     dependencies:
       '@braintree/sanitize-url': 3.1.0
-      d3: 7.4.0
+      d3: 7.4.4
       dagre: 0.8.5
       dagre-d3: 0.6.4
       dompurify: 2.3.5
       graphlib: 2.1.8
       khroma: 1.4.1
       moment-mini: 2.24.0
-      stylis: 4.0.13
+      stylis: 4.1.1
     dev: false
 
   /methods/1.1.2:
@@ -8089,8 +8089,8 @@ packages:
       postcss-selector-parser: 6.0.9
     dev: true
 
-  /stylis/4.0.13:
-    resolution: {integrity: sha512-xGPXiFVl4YED9Jh7Euv2V220mriG9u4B2TA6Ybjc1catrstKD2PpIdU3U0RKpkVBC2EhmL/F0sPCr9vrFTNRag==}
+  /stylis/4.1.1:
+    resolution: {integrity: sha512-lVrM/bNdhVX2OgBFNa2YJ9Lxj7kPzylieHd3TNjuGE0Re9JB7joL5VUKOVH1kdNNJTgGPpT8hmwIAPLaSyEVFQ==}
     dev: false
 
   /supports-color/5.5.0:
