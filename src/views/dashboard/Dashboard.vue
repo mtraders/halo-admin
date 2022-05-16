@@ -99,9 +99,6 @@
         </a-card>
       </a-col>
       <a-col :lg="8" :md="12" :sm="24" :xl="8" :xs="24" class="mb-3">
-        <JournalPublishCard />
-      </a-col>
-      <a-col :lg="8" :md="12" :sm="24" :xl="8" :xs="24" class="mb-3">
         <a-card :bodyStyle="{ padding: '16px' }" :bordered="false">
           <template slot="title">
             操作日志
@@ -128,7 +125,6 @@
 <script>
 import { PageView } from '@/layouts'
 import AnalysisCard from './components/AnalysisCard'
-import JournalPublishCard from './components/JournalPublishCard'
 import RecentCommentTab from './components/RecentCommentTab'
 
 import apiClient from '@/utils/api-client'
@@ -139,7 +135,6 @@ export default {
   components: {
     PageView,
     AnalysisCard,
-    JournalPublishCard,
     RecentCommentTab
   },
   data() {
