@@ -12,16 +12,6 @@
         </analysis-card>
       </a-col>
       <a-col :lg="6" :md="12" :sm="12" :xl="6" :xs="12" class="mb-3">
-        <analysis-card :number="statisticsData.commentCount" title="评论">
-          <template #action>
-            <router-link :to="{ name: 'Comments' }">
-              <a-icon v-if="statisticsLoading" type="loading" />
-              <a-icon v-else type="unordered-list" />
-            </router-link>
-          </template>
-        </analysis-card>
-      </a-col>
-      <a-col :lg="6" :md="12" :sm="12" :xl="6" :xs="12" class="mb-3">
         <analysis-card :number="statisticsData.visitCount" title="阅读量">
           <template #action>
             <a-tooltip>
