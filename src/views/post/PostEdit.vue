@@ -262,7 +262,7 @@ export default {
         .upload(file)
         .then(response => {
           const attachment = response.data
-          insertFn(`https://cern-api.fists.cn${attachment.path}`)
+          insertFn(attachment.path)
         })
         .catch(e => {
           this.$log.error('upload image error: ', e)
@@ -273,7 +273,7 @@ export default {
         .upload(file)
         .then(response => {
           const attachment = response.data
-          insertFn(`https://cern-api.fists.cn${attachment.path}`)
+          insertFn(attachment.path)
         })
         .catch(e => {
           this.$log.error('upload video error: ', e)
@@ -284,7 +284,7 @@ export default {
         .upload(file)
         .then(response => {
           const attachment = response.data
-          insertFn(`https://cern-api.fists.cn${attachment.path}`, `${attachment.name}`)
+          insertFn(attachment.path, attachment.name)
         })
         .catch(e => {
           this.$log.error('upload attachment error: ', e)
